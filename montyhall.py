@@ -9,80 +9,99 @@ a = 'Tür 1'
 b = 'Tür 2'
 c = 'Tür 3'
 
-g = random.choice(["a", "b", "c"])
-j = "ja"
-n = "nein"
+count = 1000
+counter = 0
+for _ in range(count):
 
-ausgewaehltetuer = input('Wähle eine Tür aus: ')
+    g = random.choice(["a", "b", "c"])
+    j = "ja"
+    n = "nein"
 
-# outcome of users input
-if "a" == ausgewaehltetuer:
-    if "a" == g:
-        print("Tür", random.choice(["b", "c"]))
-    if "b" == g:
-        print("Tür c wird geöffnet.")
-    if "c" == g:
-        print("Tür b wird geöffent.")
+    ausgewaehltetuer = "a"
 
-if "b" == ausgewaehltetuer:
-    if "a" == g:
-        print("Tür c wird geöffent.")
-    if "b" == g:
-        print("Tür", random.choice(["b", "c"]))
-    if "c" == g:
-        print("Tür a wird geöffnet.")
-
-if "c" == ausgewaehltetuer:
-    if "a" == g:
-        print("Tür b wird geöffnet.")
-    if "b" == g:
-        print("Tür a wird geöffnet.")
-    if "c" == g:
-        print("Tür", random.choice(["a", "c"]))
-
-# second input
-print('Ihre Tür ist:', ausgewaehltetuer)
-zweitetuer = input('Wächselst du die Tür? j/n: ')
-
-# outcome of users second input
-if "a" == ausgewaehltetuer:
-    if "j" == zweitetuer:
+    # outcome if door a is selected
+    if "a" == ausgewaehltetuer:
+        if "a" == g:
+            print("Tür", random.choice(["b", "c"]))
         if "b" == g:
-            print('Gewonnen!')
-        elif "c" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
-    elif "n" == zweitetuer:
-        if "a" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
-
-if "b" == ausgewaehltetuer:
-    if "j" == zweitetuer:
-        if "a" == g:
-            print('Gewonnen!')
-        elif "c" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
-    elif "n" == zweitetuer:
-        if "b" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
-
-if "c" == ausgewaehltetuer:
-    if "j" == zweitetuer:
-        if "a" == g:
-            print('Gewonnen!')
-        elif "b" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
-    elif "n" == zweitetuer:
+            print("Tür c wird geöffnet.")
         if "c" == g:
-            print('Gewonnen!')
-        else:
-            print('Verloren!')
+            print("Tür b wird geöffent.")
+
+    # outcome if door b is selected
+    if "b" == ausgewaehltetuer:
+        if "a" == g:
+            print("Tür c wird geöffent.")
+        if "b" == g:
+            print("Tür", random.choice(["b", "c"]))
+        if "c" == g:
+            print("Tür a wird geöffnet.")
+
+    # outcome if door c is selected
+    if "c" == ausgewaehltetuer:
+        if "a" == g:
+            print("Tür b wird geöffnet.")
+        if "b" == g:
+            print("Tür a wird geöffnet.")
+        if "c" == g:
+            print("Tür", random.choice(["a", "c"]))
+
+    # second input
+    print('Ihre Tür ist:', ausgewaehltetuer)
+    zweitetuer = "j"
+
+    # outcome if 
+    if "a" == ausgewaehltetuer:
+        if "j" == zweitetuer:
+            if "b" == g:
+                print('Gewonnen!')
+                counter += 1
+            elif "c" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+        elif "n" == zweitetuer:
+            if "a" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+
+    if "b" == ausgewaehltetuer:
+        if "j" == zweitetuer:
+            if "a" == g:
+                print('Gewonnen!')
+                counter += 1
+            elif "c" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+        elif "n" == zweitetuer:
+            if "b" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+
+    if "c" == ausgewaehltetuer:
+        if "j" == zweitetuer:
+            if "a" == g:
+                print('Gewonnen!')
+                counter += 1
+            elif "b" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+        elif "n" == zweitetuer:
+            if "c" == g:
+                print('Gewonnen!')
+                counter += 1
+            else:
+                print('Verloren!')
+
+# probability of winning in %
+counter = counter / 1000 * 100
+print(counter, "%")
