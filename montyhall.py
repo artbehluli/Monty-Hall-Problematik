@@ -4,6 +4,7 @@
 
 import random
 
+# variables
 a = 'Tür 1'
 b = 'Tür 2'
 c = 'Tür 3'
@@ -14,6 +15,7 @@ n = "nein"
 
 ausgewaehltetuer = input('Wähle eine Tür aus: ')
 
+# outcome of users input
 if "a" == ausgewaehltetuer:
     if "a" == g:
         print("Tür", random.choice(["b", "c"]))
@@ -38,9 +40,11 @@ if "c" == ausgewaehltetuer:
     if "c" == g:
         print("Tür", random.choice(["a", "c"]))
 
+# second input
 print('Ihre Tür ist:', ausgewaehltetuer)
 zweitetuer = input('Wächselst du die Tür? j/n: ')
 
+# outcome of users second input
 if "a" == ausgewaehltetuer:
     if "j" == zweitetuer:
         if "b" == g:
